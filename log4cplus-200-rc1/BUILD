@@ -1,4 +1,5 @@
 package(default_visibility = ["//visibility:public"])
+licenses(["notice"])
 
 cc_library(
     name = "log4cplus-200-rc1",
