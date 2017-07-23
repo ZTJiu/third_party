@@ -4,7 +4,7 @@ licenses(["notice"])
 cc_library(
     name = "log4cplus-200-rc1",
     includes = ["include","threadpool"],
-    hdrs = glob(["include/log4cplus/**/*.h"]),
+    hdrs = glob(["include/log4cplus/**/*.h", "include/log4cplus/**/*.hxx"]),
     copts = [
         "-DHAVE_CONFIG_H",
         "-DNDEBUG",

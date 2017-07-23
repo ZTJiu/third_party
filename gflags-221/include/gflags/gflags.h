@@ -86,7 +86,7 @@
 
 // We always want to export variables defined in user code
 #ifndef GFLAGS_DLL_DEFINE_FLAG
-#  ifdef _MSC_VER
+#  if GFLAGS_IS_A_DLL && defined(_MSC_VER)
 #    define GFLAGS_DLL_DEFINE_FLAG __declspec(dllexport)
 #  else
 #    define GFLAGS_DLL_DEFINE_FLAG
@@ -285,7 +285,7 @@ class GFLAGS_DLL_DECL FlagSaver {
 
   FlagSaver(const FlagSaver&);  // no copying!
   void operator=(const FlagSaver&);
-}@GFLAGS_ATTRIBUTE_UNUSED@;
+}__attribute((unused));
 
 // --------------------------------------------------------------------
 // Some deprecated or hopefully-soon-to-be-deprecated functions.
@@ -599,7 +599,8 @@ public:
 #endif  // SWIG
 
 
-@INCLUDE_GFLAGS_NS_H@
+// Import gflags library symbols into alternative/deprecated namespace(s)
+#include "gflags_gflags.h"
 
 
 #endif  // GFLAGS_GFLAGS_H_
